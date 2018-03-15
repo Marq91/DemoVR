@@ -1,0 +1,4 @@
+El Script ThrowSimulation
+simula el seguimiento del objeto a lanzar 
+(Granade, Misile o FireGun)desde su ubicacion inicial
+hacia el Target/Objetivo.

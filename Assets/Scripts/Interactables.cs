@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactables : MonoBehaviour {
-
+public class Interactables : MonoBehaviour
+{
     public bool interactable = false;
 
     public Material[] material;
@@ -15,7 +15,7 @@ public class Interactables : MonoBehaviour {
     public GameObject myWeapon;
     public GameObject weaponOnGround;
 
-    void Start ()
+    void Start()
     {
         rend = GetComponent<Renderer>();
         rend.enabled = true;
@@ -38,7 +38,7 @@ public class Interactables : MonoBehaviour {
         //...del personaje en este Script y en comunicarse con el Script de HolderWeapon 
     }
 
-    void Update ()
+    void Update()
     {
         //Checkear si el objeto es interactable y presionar el boton correcto
         if (interactable && Input.GetButton("Fire1"))
@@ -55,7 +55,7 @@ public class Interactables : MonoBehaviour {
             //si no es interactable muestra el index 0 el cual no contiene modificacion
             rend.sharedMaterial = material[0];
         }
-	}
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -64,13 +64,13 @@ public class Interactables : MonoBehaviour {
         {
             interactable = true;
 
+            //if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)) //este boton no esta funcionando
+
             //Prueba habilitar / Deshabilitar
-            
-            
-                myWeapon.SetActive(true);
-                weaponOnGround.SetActive(false);
-            
-            
+
+            myWeapon.SetActive(true);
+            weaponOnGround.SetActive(false);
+
         }
     }
 
