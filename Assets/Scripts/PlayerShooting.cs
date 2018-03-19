@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour {
-
-
+    
     public int damagePerShot = 20;
     //tiempo entre disparos
     public float timeBetweenBullets = 0.15f;
@@ -53,11 +52,24 @@ public class PlayerShooting : MonoBehaviour {
         timer += Time.deltaTime;
 
         //Cambiar el boton por OVRInput
-        //calcula si ha pasado tiempo entre disparos para nuevamente disparar y el Juego no esta pausado (&& Time.timeScale != 0)
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
+        if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) && timer >= timeBetweenBullets && Time.timeScale != 0)
         {
             Shoot();
+            //invoca al metodo y se repite cada seg. y cada RepateRate seg.
+           // InvokeRepeating("Shoot", timeBetweenBullets, timeBetweenBullets);
         }
+        //GetUp indica el boton virtual presionado
+        if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
+        {
+            CancelInvoke();
+        }
+
+        //Boton de teclado: Deshabilitado
+        //calcula si ha pasado tiempo entre disparos para nuevamente disparar y el Juego no esta pausado (&& Time.timeScale != 0)
+        //if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
+        //{
+        //    Shoot();
+        //}
         //Calcula si ha pasado tiempo para desactivar los efectos de disparo (luces efectos)
         if (timer >= timeBetweenBullets * effectsDisplayTime)
         {

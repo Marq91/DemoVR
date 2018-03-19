@@ -1,0 +1,2 @@
+Se puede modificar el Prefab del cubo por algun otro objeto.
+Script disponible a modificacion para el tiempo entre spawn(Agregar corrutina). 
