@@ -385,6 +385,7 @@
     <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\FX\Outline\StandardOutline.shader" />
     <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
+    <None Include="Assets\Fonts\RoboFonts\LICENSE.txt" />
     <None Include="Assets\OVR\Editor\AndroidManifest.OVRSubmission.xml" />
     <None Include="Assets\OVR\Plugins\placeholder.txt" />
     <None Include="Assets\OVR\Resources\Cubemap Blit.shader" />
