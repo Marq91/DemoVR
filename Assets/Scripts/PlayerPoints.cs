@@ -10,8 +10,11 @@ public class PlayerPoints : MonoBehaviour {
     public int startingPoint = 100;
     public int currentPoint;
 
+    //variable udemy
+    public TextMesh pointText;
+
     //Cambiar slider por numeros en un TextMesh
-    public SliderJoint2D healthSlider;
+    //public SliderJoint2D healthSlider;
   
     //Añadir imagen de daño(Deshabilitada por ahora: necesita un tipo HUD -> Canvas)
     //public Image damageImage;
@@ -37,6 +40,9 @@ public class PlayerPoints : MonoBehaviour {
 
     void Update ()
     {
+        //Point text = healthtext
+        pointText.text = currentPoint.ToString();
+
         //Animacion pantalla daño Deshabilitada
         //if (damaged)
         //{
@@ -46,7 +52,7 @@ public class PlayerPoints : MonoBehaviour {
         //{
         //    damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed);
         //}
-        //damaged = false;
+        damaged = false;
 
 	}
 
@@ -65,7 +71,6 @@ public class PlayerPoints : MonoBehaviour {
             //Si llego a 0 el jugador muere
             //Death();
         }
-
     }
 
     void Death()

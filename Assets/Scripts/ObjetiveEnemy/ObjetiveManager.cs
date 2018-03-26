@@ -7,7 +7,8 @@ public class ObjetiveManager : MonoBehaviour {
     //**Script que controla el tiempo de Spawn
     //**Referencia video: 11 - Generando Enemigos - Tutorial Survival Shooter en Unity
 
-    //crear script PlayerPoint (PlayerHealth originalmente). Esto determinara si termina el juego por quedar sin puntos el juego termina y deja de crear objetivos.
+    //crear script PlayerPoints (PlayerHealth originalmente). 
+    //Esto determinara si termina el juego por quedar sin puntos el juego termina y deja de crear objetivos.
     //public PlayerPoint playerPoint;
 
     //Referencia al objetivo prefab

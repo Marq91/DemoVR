@@ -7,16 +7,17 @@ public class ScoreManager : MonoBehaviour {
 
     public static int score;
 
-    TextMesh text;
+    TextMesh text;      //Originalmente era Text text;
 	
 	void Awake ()
     {
-        text = GetComponent<TextMesh>();
+        text = GetComponent<TextMesh>();    //Originalmente era text = GetComponent<Text>();
 
         //Resetea el score
         score = 0;
 	}
 	
+    //Falta codigo mas abajo
 	void Update ()
     {
 		

@@ -5,8 +5,15 @@ using UnityEngine.UI;
 
 public class CountdownTimer : MonoBehaviour {
 
+    //Se cambio Text contador a TextMesh contador
     public Text contador;
-    private float tiempo = 60f;
+    protected float tiempo = 60f;
+
+    //Prueba get 1
+    //public float getMiCount()
+    //{
+    //    return tiempo;
+    //}
 
     void Start()
     {
@@ -17,5 +24,13 @@ public class CountdownTimer : MonoBehaviour {
     {
         tiempo -= Time.deltaTime;
         contador.text = " " + tiempo.ToString("f0");
+
+        //Fin count
+        if (tiempo <= 0)
+        {
+            tiempo = 0;
+            //Do something cool!
+            //contador.color.ToColorf();
+        }
     }
 }
