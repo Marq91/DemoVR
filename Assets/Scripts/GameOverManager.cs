@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverManager : CountdownTimer {
+public class GameOverManager : MonoBehaviour {
     //**Clase modificada heredada de MonoBehaviour a CountdownTimer
 
     //public PlayerPoints playerPoint;       // Se puede reemplazar tiempo por current points.
@@ -13,9 +13,19 @@ public class GameOverManager : CountdownTimer {
     //Animator anim;                          // Reference to the animator component.
     public TextMesh gameOverText;
 
-    void Start()
+    public static GameOverManager instance = null;
+
+    void Awake()
     {
-        // Set up the reference.
+        //Probando instance
+        if (instance == null)
+        {
+            instance = instance;
+        }
+
+
+        //Fin Prueba Instance
+
         //anim = GetComponent <Animator> ();
         gameOverText.text = "";
 
@@ -24,10 +34,10 @@ public class GameOverManager : CountdownTimer {
 
         contadorTime = GameObject.Find("tiempo");
 
-        if (tiempo <= 0)
-        {
-            gameOverText.text = "Game Over";
-        }
+        //if (tiempo <= 0)
+        //{
+        //    gameOverText.text = "Game Over";
+        //}
     }
     
     void Update()
@@ -39,5 +49,10 @@ public class GameOverManager : CountdownTimer {
         //    //anim.SetTrigger ("GameOver");
         //    gameOverText.text = "Game Over";
         //}
+    }
+
+    public void OnGameOverDo()
+    {
+
     }
 }

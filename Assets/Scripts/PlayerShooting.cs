@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour {
     
-    public int damagePerShot = 20;
-    //tiempo entre disparos
-    public float timeBetweenBullets = 0.15f;
-    //distancia que la bala recorre
-    public float range = 100f;
+    public int damagePerShot = 50;
+    public float timeBetweenBullets = 0.15f;    //tiempo entre disparos
+    public float range = 100f;                  //distancia que la bala recorre
 
-    //Econtar tiempo entre ultimo disparo
-    float timer;
-    //Descriopcion punto inicial y direccion del disparo
-    Ray shootRay = new Ray();
-    //Resultado objeto con el q colisiona
-    RaycastHit shootHit;
-    //representa las capas con los collider con los q colisiona
-    int shootableMask;
+    
+    float timer;                    //Econtar tiempo entre ultimo disparo
+    Ray shootRay = new Ray();       //Descriopcion punto inicial y direccion del disparo
+    RaycastHit shootHit;            //Resultado objeto con el q colisiona
+    int shootableMask;              //representa las capas con los collider con los q colisiona
 
-    //Resto de variables de efectos
-    ParticleSystem gunParticles;
+    
+    ParticleSystem gunParticles;    //Resto de variables de efectos
 
     //Configurar LineRenderer simulacion bala en **Resto de script revisar referencias
     LineRenderer gunLine;
@@ -56,7 +51,7 @@ public class PlayerShooting : MonoBehaviour {
         {
             Shoot();
             //invoca al metodo y se repite cada seg. y cada RepateRate seg.
-           // InvokeRepeating("Shoot", timeBetweenBullets, timeBetweenBullets);
+           InvokeRepeating("Shoot", timeBetweenBullets, timeBetweenBullets);
         }
         //GetUp indica el boton virtual presionado
         if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
@@ -76,8 +71,7 @@ public class PlayerShooting : MonoBehaviour {
             DisableEffects();
         }
     }
-
-
+    
     public void DisableEffects()
     {
         gunLine.enabled = false;
@@ -115,11 +109,12 @@ public class PlayerShooting : MonoBehaviour {
         if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
         {
             //Se debe corregir ya que el script EnemyHealt esat fuera de contexto
-            //EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
-            //if (enemyHealth != null)
-            //{
-            //    enemyHealth.TakeDamage(damagePerShot, shootHit.point);
-            //}
+            ObjetiveHealth objetiveHealth = shootHit.collider.GetComponent<ObjetiveHealth>();
+
+            if (objetiveHealth != null)
+            {
+                objetiveHealth.TakeDamage(damagePerShot, shootHit.point);
+            }
             gunLine.SetPosition(1, shootHit.point);
         }
         else
