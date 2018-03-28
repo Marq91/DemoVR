@@ -7,7 +7,7 @@ public class CountdownTimer : MonoBehaviour {
 
     //Se cambio Text contador a TextMesh contador
     public Text contador;
-    protected float tiempo = 60f;
+    public float tiempo;      //protected float tiempo = 60f;
 
     //Prueba get 1
     //public float getMiCount()
@@ -17,20 +17,38 @@ public class CountdownTimer : MonoBehaviour {
 
     void Start()
     {
-        contador.text = " " + tiempo;
+        //contador.text = " " + tiempo;
     }
 
+    public void AddTime()
+    {
+        //metodo para en el futuro agregar tiempo (int value){ }
+    }
+
+    
     void Update()
     {
-        tiempo -= Time.deltaTime;
-        contador.text = " " + tiempo.ToString("f0");
+        //Antes
+        //tiempo -= Time.deltaTime;
+        //contador.text = " " + tiempo.ToString("f0");
 
+        //Antes
+        // if (tiempo <= 0)
+        //{
+        //tiempo = 0;
+        //}
+ 
         //Fin count
-        if (tiempo <= 0)
+        if (tiempo > 0)
         {
+            tiempo -= Time.deltaTime;
+            contador.text = " " + tiempo.ToString("f0");
+        }
+        else
+	    { 
             tiempo = 0;
-            //Do something cool!
-            //contador.color.ToColorf();
+            //Llama a singleton desde el GameOverManager
+            GameOverManager.instance.OnTimerOut("Game Over");
         }
     }
 }

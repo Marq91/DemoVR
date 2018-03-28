@@ -7,7 +7,6 @@ public class PlayerShooting : MonoBehaviour {
     public int damagePerShot = 50;
     public float timeBetweenBullets = 0.15f;    //tiempo entre disparos
     public float range = 100f;                  //distancia que la bala recorre
-
     
     float timer;                    //Econtar tiempo entre ultimo disparo
     Ray shootRay = new Ray();       //Descriopcion punto inicial y direccion del disparo

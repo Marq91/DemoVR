@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerPoints : MonoBehaviour {
 
@@ -11,7 +12,7 @@ public class PlayerPoints : MonoBehaviour {
     public int currentPoint;
 
     //variable udemy
-    public TextMesh pointText;
+    //public TextMesh pointText;
 
     //Cambiar slider por numeros en un TextMesh
     //public SliderJoint2D healthSlider;
@@ -41,7 +42,7 @@ public class PlayerPoints : MonoBehaviour {
     void Update ()
     {
         //Point text = healthtext
-        pointText.text = currentPoint.ToString();
+        //pointText.text = currentPoint.ToString();
 
         //Animacion pantalla daño Deshabilitada
         //if (damaged)
@@ -92,4 +93,11 @@ public class PlayerPoints : MonoBehaviour {
 
     }
 
+    //**Para Reiniciar el nivel o Cargar uno nuevo
+    //public void RestartLevel()
+    //{
+        //Recarga el nivel que esta actualmente cargado.
+    //    SceneManager.LoadSce
+    //}
+    
 }
